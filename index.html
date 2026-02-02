@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ben's 17-Day South Island Road Trip - NZ Camping Dashboard</title>
+    <title>Ben's 17-Day South Island Road Trip - NZ Adventure Dashboard</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
@@ -166,23 +166,6 @@
             color: #1a1a2e;
         }
         
-        .campsite-mini {
-            display: inline-block;
-            background: rgba(0,255,136,0.1);
-            border: 1px solid #00ff88;
-            border-radius: 8px;
-            padding: 8px 12px;
-            margin: 5px 5px 5px 0;
-            font-size: 0.9em;
-        }
-        .campsite-mini.paid {
-            background: rgba(255,149,0,0.1);
-            border-color: #ff9500;
-        }
-        .campsite-mini a {
-            color: inherit;
-        }
-        
         .info-box {
             background: rgba(0,217,255,0.1);
             border: 1px solid #00d9ff;
@@ -198,67 +181,6 @@
         .info-box.warning h3 { color: #ff6b6b; }
         .info-box ul { margin-left: 20px; line-height: 1.8; }
         .info-box li { color: #ccd6f6; }
-        
-        .campsite-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        .campsite-card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.3s, border-color 0.3s;
-        }
-        .campsite-card:hover {
-            transform: translateY(-5px);
-            border-color: #00d9ff;
-        }
-        .campsite-card.free { border-left: 4px solid #00ff88; }
-        .campsite-card.paid { border-left: 4px solid #ff9500; }
-        .card-header {
-            padding: 15px;
-            background: rgba(0,0,0,0.2);
-        }
-        .card-header h3 { font-size: 1em; margin-bottom: 3px; }
-        .card-header .location { color: #8892b0; font-size: 0.85em; }
-        .card-body { padding: 15px; }
-        .price-tag {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-weight: 600;
-            font-size: 0.85em;
-            margin-bottom: 10px;
-        }
-        .price-tag.free { background: #00ff8830; color: #00ff88; }
-        .price-tag.paid { background: #ff950030; color: #ff9500; }
-        .amenities {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 10px;
-        }
-        .amenity {
-            background: rgba(255,255,255,0.1);
-            padding: 4px 8px;
-            border-radius: 5px;
-            font-size: 0.8em;
-        }
-        .card-link {
-            display: block;
-            text-align: center;
-            padding: 10px;
-            background: linear-gradient(90deg, #00d9ff, #00ff88);
-            color: #1a1a2e;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 8px;
-            font-size: 0.9em;
-        }
-        .card-link:hover { opacity: 0.9; text-decoration: none; }
         
         .stats-row {
             display: flex;
@@ -302,6 +224,45 @@
         .hike-card.hard { border-color: #ff6b6b; }
         .hike-card.moderate { border-color: #ff9500; }
         
+        .location-section {
+            margin-bottom: 40px;
+        }
+        .location-section h3 {
+            color: #00ff88;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0,255,136,0.3);
+        }
+        
+        .food-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #ff9500;
+        }
+        .food-card h4 { color: #fff; margin-bottom: 5px; }
+        .food-card .type { color: #ff9500; font-size: 0.85em; margin-bottom: 8px; }
+        .food-card .desc { color: #ccd6f6; font-size: 0.9em; }
+        
+        .weather-box {
+            background: linear-gradient(135deg, rgba(0,217,255,0.2), rgba(0,255,136,0.1));
+            border: 2px solid #00d9ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .weather-box h3 {
+            color: #00d9ff;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        .weather-box p {
+            color: #ccd6f6;
+            margin-bottom: 15px;
+        }
+        
         footer {
             text-align: center;
             padding: 30px;
@@ -313,7 +274,6 @@
         @media (max-width: 768px) {
             h1 { font-size: 1.8em; }
             .day-header { flex-direction: column; align-items: flex-start; }
-            .campsite-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -336,14 +296,26 @@
             <div class="stat-pill"><span class="number">17</span> Days</div>
             <div class="stat-pill"><span class="number">~2,500</span> km Total</div>
             <div class="stat-pill"><span class="number">10+</span> Destinations</div>
-            <div class="stat-pill"><span class="number">$0-70</span> /night camping</div>
+            <div class="stat-pill"><span class="number">Feb 3-19</span> 2026</div>
+        </div>
+
+        <!-- WEATHER BOX -->
+        <div class="weather-box">
+            <h3>🌤️ Check Daily Weather</h3>
+            <p>New Zealand weather changes fast - check each morning before hiking!</p>
+            <a href="https://www.metservice.com/towns-cities/locations/queenstown" target="_blank" class="link-btn orange" style="font-size: 1.1em; padding: 12px 24px; margin: 5px;">📱 MetService - Queenstown</a>
+            <a href="https://www.metservice.com/towns-cities/locations/wanaka" target="_blank" class="link-btn orange" style="font-size: 1.1em; padding: 12px 24px; margin: 5px;">📱 MetService - Wanaka</a>
+            <a href="https://www.metservice.com/towns-cities/locations/franz-josef" target="_blank" class="link-btn orange" style="font-size: 1.1em; padding: 12px 24px; margin: 5px;">📱 MetService - Franz Josef</a>
+            <br><br>
+            <a href="https://apps.apple.com/nz/app/metservice/id369425912" target="_blank" class="link-btn green">📲 Download MetService App (iOS)</a>
+            <a href="https://play.google.com/store/apps/details?id=com.metservice.nz" target="_blank" class="link-btn green">📲 Download MetService App (Android)</a>
         </div>
 
         <div class="nav-tabs">
             <button class="nav-tab active" onclick="showSection('itinerary')">📅 Day-by-Day</button>
-            <button class="nav-tab" onclick="showSection('campsites')">🏕️ Campsites</button>
             <button class="nav-tab" onclick="showSection('hikes')">🥾 Hikes & Walks</button>
             <button class="nav-tab" onclick="showSection('highlights')">⭐ Highlights</button>
+            <button class="nav-tab" onclick="showSection('food')">🍽️ Food & Drink</button>
             <button class="nav-tab" onclick="showSection('tips')">💡 Tips & Apps</button>
         </div>
 
@@ -351,7 +323,7 @@
         <div id="itinerary" class="section active">
             
             <div class="info-box">
-                <h3>🗺️ Your Route Overview</h3>
+                <h3>🗺️ Your Route with Stops</h3>
                 <p style="color: #ccd6f6; line-height: 1.8;">
                     <strong>Christchurch</strong> → <strong>Lake Tekapo</strong> (1 night) → <strong>Mt Cook</strong> (2 nights) → 
                     <strong>Queenstown</strong> (3 nights + Milford Sound ⭐) → <strong>Wanaka</strong> (2 nights) → 
@@ -359,22 +331,7 @@
                     <strong>Marlborough</strong> 🍷 (2 nights) → <strong>Christchurch</strong> (via Kaikōura)
                 </p>
                 <div style="margin-top: 20px;">
-                    <a href="https://www.google.com/maps/dir/Christchurch,+New+Zealand/Lake+Tekapo,+New+Zealand/Mount+Cook+Village,+New+Zealand/Queenstown,+New+Zealand/Milford+Sound,+New+Zealand/Wanaka,+New+Zealand/Franz+Josef,+New+Zealand/Punakaiki,+New+Zealand/Abel+Tasman+National+Park,+New+Zealand/Blenheim,+New+Zealand/Christchurch,+New+Zealand" target="_blank" class="link-btn orange" style="font-size: 1.1em; padding: 12px 24px;">🗺️ View Full Route on Google Maps</a>
-                </div>
-            </div>
-            
-            <div class="info-box" style="margin-bottom: 30px;">
-                <h3>📍 Interactive Route Map</h3>
-                <div style="border-radius: 10px; overflow: hidden; margin-top: 15px;">
-                    <iframe 
-                        width="100%" 
-                        height="450" 
-                        style="border:0; border-radius: 10px;" 
-                        loading="lazy" 
-                        allowfullscreen 
-                        referrerpolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed?pb=!1m76!1m12!1m3!1d2986062.0697711073!2d168.5!3d-44.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m61!3e0!4m5!1s0x6d318a3aa6c2f0c1%3A0x500ef6143a2e900!2sChristchurch%2C%20New%20Zealand!3m2!1d-43.5320544!2d172.6362254!4m5!1s0x6d2b0f0e9a0b0a0b%3A0x500ef6143a2f0a0!2sLake%20Tekapo%2C%20New%20Zealand!3m2!1d-44.0047222!2d170.4769444!4m5!1s0x6d2b7f0e9a0b0a0b%3A0x500ef6143a2f0a0!2sMount%20Cook%20Village%2C%20New%20Zealand!3m2!1d-43.7350544!2d170.0960254!4m5!1s0x6d2bdf0e9a0b0a0b%3A0x500ef6143a2f0a0!2sQueenstown%2C%20New%20Zealand!3m2!1d-45.0311544!2d168.6626254!4m5!1s0x6d2c0f0e9a0b0a0b%3A0x500ef6143a2f0a0!2sWanaka%2C%20New%20Zealand!3m2!1d-44.7031544!2d169.1320254!4m5!1s0x6d2c2f0e9a0b0a0b%3A0x500ef6143a2f0a0!2sFranz%20Josef%2C%20New%20Zealand!3m2!1d-43.3885544!2d170.1833254!4m5!1s0x6d2c4f0e9a0b0a0b%3A0x500ef6143a2f0a0!2sArthur's%20Pass%2C%20New%20Zealand!3m2!1d-42.9403544!2d171.5614254!4m5!1s0x6d2c6f0e9a0b0a0b%3A0x500ef6143a2f0a0!2sHanmer%20Springs%2C%20New%20Zealand!3m2!1d-42.5229544!2d172.8303254!4m5!1s0x6d2c8f0e9a0b0a0b%3A0x500ef6143a2f0a0!2sAkaroa%2C%20New%20Zealand!3m2!1d-43.8037544!2d172.9683254!4m5!1s0x6d318a3aa6c2f0c1%3A0x500ef6143a2e900!2sChristchurch%2C%20New%20Zealand!3m2!1d-43.5320544!2d172.6362254!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s">
-                    </iframe>
+                    <a href="https://www.google.com/maps/dir/Christchurch+Airport,+New+Zealand/Lake+Tekapo,+New+Zealand/Aoraki+Mount+Cook+Village,+New+Zealand/Queenstown,+New+Zealand/Te+Anau,+New+Zealand/Milford+Sound,+New+Zealand/Wanaka,+New+Zealand/Franz+Josef+Glacier,+New+Zealand/Punakaiki,+New+Zealand/Kaiteriteri,+New+Zealand/Blenheim,+New+Zealand/Kaikoura,+New+Zealand/Christchurch+Airport,+New+Zealand" target="_blank" class="link-btn orange" style="font-size: 1.2em; padding: 15px 30px;">🗺️ Open Full Route with All Stops on Google Maps</a>
                 </div>
             </div>
 
@@ -401,10 +358,6 @@
                             <li>Evening: <a href="https://www.darkskyproject.co.nz" target="_blank" class="link-btn orange">⭐ Dark Sky Project Tour</a> - world-class stargazing!</li>
                         </ul>
                     </div>
-                    <div class="day-section">
-                        <h4>🏕️ Your Booking</h4>
-                        <a href="https://www.google.com/maps/search/Lake+McGregor+Campsite+Tekapo" target="_blank" class="campsite-mini" style="background: rgba(0,255,136,0.3); border-color: #00ff88; font-weight: bold;">⭐ Lake McGregor Campervan Site - BOOKED</a>
-                    </div>
                 </div>
             </div>
 
@@ -428,15 +381,10 @@
                             <li>⚠️ Note: Check <a href="https://www.doc.govt.nz/hooker-valley-track" target="_blank">DOC website</a> for current track status</li>
                         </ul>
                     </div>
-                    <div class="day-section">
-                        <h4>🏕️ Camping Options</h4>
-                        <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/campsites/white-horse-hill-campsite/" target="_blank" class="campsite-mini">White Horse Hill DOC - $15pp ⭐</a>
-                        <a href="https://www.glentanner.co.nz" target="_blank" class="campsite-mini paid">Glentanner Park - $25-50</a>
-                    </div>
                 </div>
             </div>
 
-            <!-- DAY 4 -->
+            <!-- DAY 3 -->
             <div class="day-card">
                 <div class="day-header">
                     <div>
@@ -459,7 +407,7 @@
                 </div>
             </div>
 
-            <!-- DAY 5 -->
+            <!-- DAY 4 -->
             <div class="day-card">
                 <div class="day-header">
                     <div>
@@ -476,12 +424,8 @@
                             <li>Drive via Lindis Pass - beautiful tussock country</li>
                             <li>Arrive Queenstown - adventure capital!</li>
                             <li><a href="https://www.skyline.co.nz/en/queenstown/" target="_blank" class="link-btn orange">🚡 Skyline Gondola</a> - dinner with views</li>
+                            <li>Explore the lakefront and town centre</li>
                         </ul>
-                    </div>
-                    <div class="day-section">
-                        <h4>🏕️ Camping Options</h4>
-                        <a href="https://campermate.com/en/location/new-zealand/ota/queenstown/free-campsites/lakeview-carpark,-queenstown/b9f60609-cbfa-11f0-90bd-0a6a2c6a25fb" target="_blank" class="campsite-mini">Lakeview Carpark - FREE</a>
-                        <a href="https://www.queenstownholidaypark.co.nz" target="_blank" class="campsite-mini paid">Queenstown TOP 10 - $65+</a>
                     </div>
                 </div>
             </div>
@@ -501,6 +445,7 @@
                         <ul>
                             <li>Drive the stunning Glenorchy Road - one of NZ's best!</li>
                             <li>Explore <a href="https://maps.app.goo.gl/Glenorchy" target="_blank">Glenorchy</a> village - LOTR filming location!</li>
+                            <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/glenorchy-area/things-to-do/glenorchy-walkway/" target="_blank" class="link-btn green">🥾 Glenorchy Walkway</a> - 1hr, wetlands boardwalk</li>
                             <li>Drive to <a href="https://maps.app.goo.gl/ParadiseNZ" target="_blank">Paradise</a> - yes, it's really called that!</li>
                             <li><a href="https://www.dartriver.co.nz" target="_blank" class="link-btn orange">🚤 Dart River Jet Safari</a></li>
                         </ul>
@@ -531,8 +476,8 @@
                             <li>Epic drive through Te Anau to Milford Sound</li>
                             <li>Stops along the way:
                                 <ul>
-                                    <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/mirror-lakes-walk/" target="_blank">Mirror Lakes</a> - perfect reflections</li>
-                                    <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/the-chasm-walk/" target="_blank">The Chasm</a> - powerful waterfall</li>
+                                    <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/mirror-lakes-walk/" target="_blank" class="link-btn green">🥾 Mirror Lakes</a> - perfect reflections (10min)</li>
+                                    <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/the-chasm-walk/" target="_blank" class="link-btn green">🥾 The Chasm</a> - powerful waterfall (20min)</li>
                                     <li><span class="highlight">Homer Tunnel</span> - dramatic 1.2km tunnel</li>
                                 </ul>
                             </li>
@@ -565,53 +510,20 @@
                         <h4>🎯 Things To Do</h4>
                         <ul>
                             <li>Take <span class="highlight">Crown Range Road</span> - NZ's highest sealed road!</li>
-                            <li>Stop at Cardrona Hotel for coffee</li>
+                            <li>Stop at Cardrona Hotel for coffee/photo with famous bra fence</li>
                             <li>Arrive Wanaka - find <a href="https://maps.app.goo.gl/ThatWanakaTree" target="_blank">#ThatWanakaTree</a> 📸</li>
+                            <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/wanaka-area/things-to-do/mount-iron-track/" target="_blank" class="link-btn green">🥾 Mt Iron Track</a> - 1.5hr, 360° views for minimal effort</li>
+                            <li>Relax by the lakefront</li>
                         </ul>
-                    </div>
-                    <div class="day-section">
-                        <h4>🏕️ Camping Options</h4>
-                        <a href="https://campermate.com/en/location/new-zealand/ota/wanaka/free-campsites/wanaka-recreation-centre/df447ece-cbfc-11f0-90bd-0a6a2c6a25fb" target="_blank" class="campsite-mini">Wanaka Recreation Centre - FREE</a>
                     </div>
                 </div>
             </div>
 
-            <!-- DAY 9 -->
+            <!-- DAY 8 -->
             <div class="day-card">
                 <div class="day-header">
                     <div>
                         <span class="day-number">Day 8 • Tue 10 Feb</span>
-                        <span class="day-location">Wanaka</span>
-                    </div>
-                    <span class="day-drive">🚗 1hr drive • 70km (via Crown Range)</span>
-                </div>
-                <div class="day-body">
-                    <div class="day-section">
-                        <h4>🎯 Things To Do</h4>
-                        <ul>
-                            <li>Drive the stunning Glenorchy Road - one of NZ's best!</li>
-                            <li>Explore <a href="https://maps.app.goo.gl/Glenorchy" target="_blank">Glenorchy</a> village - LOTR filming location (Isengard!)</li>
-                            <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/glenorchy-area/things-to-do/glenorchy-walkway/" target="_blank" class="link-btn green">🥾 Glenorchy Walkway</a></li>
-                            <li>Drive to <a href="https://maps.app.goo.gl/ParadiseNZ" target="_blank">Paradise</a> - yes, it's really called that!</li>
-                            <li><a href="https://www.dartriver.co.nz" target="_blank" class="link-btn orange">🚤 Dart River Jet Safari</a> - wilderness experience</li>
-                        </ul>
-                    </div>
-                    <div class="day-section">
-                        <h4>🎬 LOTR Filming Spots</h4>
-                        <ul>
-                            <li>Isengard - Glenorchy area</li>
-                            <li>Lothlórien - Paradise</li>
-                            <li>Amon Hen - various locations</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DAY 9 - WANAKA ADVENTURES -->
-            <div class="day-card">
-                <div class="day-header">
-                    <div>
-                        <span class="day-number">Day 9 • Wed 11 Feb</span>
                         <span class="day-location">Wanaka Adventures 🏔️</span>
                     </div>
                     <span class="day-drive">🥾 Hiking & exploring day</span>
@@ -628,24 +540,47 @@
                         </ul>
                     </div>
                     <div class="day-section">
-                        <h4>🌅 Wanaka Highlights</h4>
+                        <h4>🌅 Afternoon Options</h4>
                         <ul>
-                            <li>📸 <a href="https://maps.app.goo.gl/ThatWanakaTree" target="_blank">#ThatWanakaTree</a> - iconic lake photo spot (sunrise/sunset best!)</li>
                             <li><a href="https://www.puzzlingworld.co.nz" target="_blank" class="link-btn">🧩 Puzzling World</a> - quirky illusion rooms & maze</li>
                             <li><a href="https://www.wanakalakewatersports.nz" target="_blank" class="link-btn">🚣 Paddleboarding/Kayaking</a> on the lake</li>
-                            <li>Wander the charming lakefront town</li>
                             <li>Craft beer at <a href="https://www.wanakabeerworks.co.nz" target="_blank">Wanaka Beerworks</a></li>
                         </ul>
-                    </div>
-                    <div class="day-section">
-                        <h4>🏕️ Camping Options</h4>
-                        <a href="https://www.wanakatop10.co.nz" target="_blank" class="campsite-mini paid">Wanaka TOP 10 - $50-70</a>
-                        <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/lake-hawea-area/" target="_blank" class="campsite-mini free">Lake Hawea Freedom Camp - FREE (self-contained)</a>
                     </div>
                 </div>
             </div>
 
-            <!-- DAY 10 - DRIVE DAY -->
+            <!-- DAY 9 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div>
+                        <span class="day-number">Day 9 • Wed 11 Feb</span>
+                        <span class="day-location">Wanaka - Rob Roy Glacier Day</span>
+                    </div>
+                    <span class="day-drive">🥾 Epic glacier hike day</span>
+                </div>
+                <div class="day-body">
+                    <div class="day-section">
+                        <h4>🥾 Rob Roy Glacier Track ⭐</h4>
+                        <ul>
+                            <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/mount-aspiring-national-park/things-to-do/tracks/rob-roy-track/" target="_blank" class="link-btn orange">🏔️ Rob Roy Glacier Track</a></li>
+                            <li>10km return, 3-4 hours, stunning alpine valley</li>
+                            <li>Waterfalls, glacier views, native beech forest</li>
+                            <li>Drive 1hr from Wanaka (gravel road, careful with vehicle)</li>
+                            <li>Pack lunch - no facilities at trailhead</li>
+                        </ul>
+                    </div>
+                    <div class="day-section">
+                        <h4>🌅 Evening in Wanaka</h4>
+                        <ul>
+                            <li>Sunset at #ThatWanakaTree</li>
+                            <li>Dinner in town - try <a href="https://www.federaldiner.co.nz" target="_blank">Federal Diner</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 10 -->
             <div class="day-card">
                 <div class="day-header">
                     <div>
@@ -660,20 +595,15 @@
                         <ul>
                             <li>Drive the stunning <span class="highlight">Haast Pass</span> - one of NZ's most scenic routes!</li>
                             <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/west-coast/places/haast-highway-area/things-to-do/tracks/blue-pools-walk/" target="_blank" class="link-btn green">🥾 Blue Pools Walk</a> - crystal clear pools, 30min return</li>
-                            <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/west-coast/places/haast-highway-area/things-to-do/tracks/thunder-creek-falls-walk/" target="_blank" class="link-btn green">Thunder Creek Falls</a> - 5min walk to waterfall</li>
+                            <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/west-coast/places/haast-highway-area/things-to-do/tracks/thunder-creek-falls-walk/" target="_blank" class="link-btn green">🥾 Thunder Creek Falls</a> - 5min walk to waterfall</li>
                             <li>Pass through Haast - grab lunch, fuel up</li>
                             <li>Continue north along wild West Coast to Franz Josef</li>
                         </ul>
                     </div>
-                    <div class="day-section">
-                        <h4>🏕️ Camping Options</h4>
-                        <a href="https://www.franzjoseftop10.co.nz" target="_blank" class="campsite-mini paid">Franz Josef TOP 10 - $50-70</a>
-                        <a href="https://www.rainforestholidaypark.co.nz" target="_blank" class="campsite-mini paid">Rainforest Holiday Park - $45-60</a>
-                    </div>
                 </div>
             </div>
 
-            <!-- DAY 11 - GLACIER DAY -->
+            <!-- DAY 11 -->
             <div class="day-card">
                 <div class="day-header">
                     <div>
@@ -702,7 +632,7 @@
                 </div>
             </div>
 
-            <!-- DAY 12 - FRANZ JOSEF TO GREYMOUTH -->
+            <!-- DAY 12 -->
             <div class="day-card">
                 <div class="day-header">
                     <div>
@@ -719,28 +649,22 @@
                             <li>Drive north along the stunning wild West Coast</li>
                             <li>Stop at <span class="highlight">Hokitika</span> - Jade capital of NZ!</li>
                             <li>Browse pounamu (jade) galleries and workshops</li>
-                            <li><a href="https://www.hokitikagorge.co.nz" target="_blank" class="link-btn green">Hokitika Gorge</a> - stunning turquoise water</li>
+                            <li><a href="https://www.hokitikagorge.co.nz" target="_blank" class="link-btn green">🥾 Hokitika Gorge</a> - stunning turquoise water (30min walk)</li>
                             <li>Walk along Hokitika Beach - famous driftwood sign</li>
                         </ul>
                     </div>
                     <div class="day-section">
                         <h4>🥞 Punakaiki Pancake Rocks!</h4>
                         <ul>
-                            <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/west-coast/places/paparoa-national-park/things-to-do/tracks/pancake-rocks-and-blowholes-walk/" target="_blank" class="link-btn orange">🥞 Pancake Rocks & Blowholes</a> - iconic layered limestone formations!</li>
+                            <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/west-coast/places/paparoa-national-park/things-to-do/tracks/pancake-rocks-and-blowholes-walk/" target="_blank" class="link-btn orange">🥾 Pancake Rocks & Blowholes</a> - iconic layered limestone!</li>
                             <li>Best at high tide when blowholes are active</li>
                             <li>Easy 20min loop walk</li>
-                            <li>Continue to Greymouth for the night</li>
                         </ul>
-                    </div>
-                    <div class="day-section">
-                        <h4>🏕️ Camping Options</h4>
-                        <a href="https://www.greymouthtop10.co.nz" target="_blank" class="campsite-mini paid">Greymouth Seaside TOP 10 - $45-65</a>
-                        <a href="https://www.punakaikibeachcamp.co.nz" target="_blank" class="campsite-mini paid">Punakaiki Beach Camp - $25-40</a>
                     </div>
                 </div>
             </div>
 
-            <!-- DAY 13 - GREYMOUTH TO ABEL TASMAN -->
+            <!-- DAY 13 -->
             <div class="day-card">
                 <div class="day-header">
                     <div>
@@ -760,15 +684,10 @@
                             <li>Arrive <span class="highlight">Motueka/Kaiteriteri</span> - gateway to Abel Tasman!</li>
                         </ul>
                     </div>
-                    <div class="day-section">
-                        <h4>🏕️ Camping Options</h4>
-                        <a href="https://www.kaiteriteribeach.co.nz" target="_blank" class="campsite-mini paid">Kaiteriteri Beach Motor Camp - $50-70</a>
-                        <a href="https://www.abeltasmanholidaypark.co.nz" target="_blank" class="campsite-mini paid">Abel Tasman Holiday Park - $45-60</a>
-                    </div>
                 </div>
             </div>
 
-            <!-- DAY 14 - ABEL TASMAN -->
+            <!-- DAY 14 -->
             <div class="day-card">
                 <div class="day-header">
                     <div>
@@ -783,7 +702,7 @@
                         <ul>
                             <li><a href="https://www.abeltasmanseakayaks.co.nz" target="_blank" class="link-btn orange">🛶 Sea Kayaking</a> - paddle to golden beaches! Half/full day options</li>
                             <li><a href="https://www.abeltasman.co.nz" target="_blank" class="link-btn">⛴️ Water Taxi</a> - access remote beaches & start hiking</li>
-                            <li>Walk sections of the famous <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/nelson-tasman/places/abel-tasman-national-park/things-to-do/tracks/abel-tasman-coast-track/" target="_blank" class="link-btn green">Abel Tasman Coast Track</a></li>
+                            <li>Walk sections of the famous <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/nelson-tasman/places/abel-tasman-national-park/things-to-do/tracks/abel-tasman-coast-track/" target="_blank" class="link-btn green">🥾 Abel Tasman Coast Track</a></li>
                             <li>Swim at <span class="highlight">Split Apple Rock</span> - iconic boulder beach!</li>
                             <li>Watch for fur seals, dolphins, and little blue penguins</li>
                         </ul>
@@ -799,7 +718,7 @@
                 </div>
             </div>
 
-            <!-- DAY 15 - TO MARLBOROUGH -->
+            <!-- DAY 15 -->
             <div class="day-card">
                 <div class="day-header">
                     <div>
@@ -818,15 +737,10 @@
                             <li>Settle in and relax before wine tasting tomorrow</li>
                         </ul>
                     </div>
-                    <div class="day-section">
-                        <h4>🏕️ Camping Options</h4>
-                        <a href="https://www.blenheimtop10.co.nz" target="_blank" class="campsite-mini paid">Blenheim TOP 10 - $50-70</a>
-                        <a href="https://www.watsonswaycampervanpark.co.nz" target="_blank" class="campsite-mini paid">Watsons Way - $40-55</a>
-                    </div>
                 </div>
             </div>
 
-            <!-- DAY 16 - MARLBOROUGH WINE -->
+            <!-- DAY 16 -->
             <div class="day-card">
                 <div class="day-header">
                     <div>
@@ -837,7 +751,7 @@
                 </div>
                 <div class="day-body">
                     <div class="day-section">
-                        <h4>🍷 Ending in the Vineyards!</h4>
+                        <h4>🍷 Wine Tasting Day!</h4>
                         <ul>
                             <li><a href="https://www.cloudbay.co.nz" target="_blank" class="link-btn orange">☁️ Cloudy Bay</a> - world-famous Sauvignon Blanc!</li>
                             <li><a href="https://www.brancottestate.com" target="_blank" class="link-btn">🍇 Brancott Estate</a> - first Marlborough winery, great views</li>
@@ -847,41 +761,11 @@
                         </ul>
                     </div>
                     <div class="day-section">
-                        <h4>🍴 Food & More</h4>
+                        <h4>🍴 Food Pairing</h4>
                         <ul>
                             <li>Lunch at a winery restaurant - amazing food!</li>
                             <li>Buy some bottles for home (cellar door prices!)</li>
                             <li>Celebrate the end of an epic trip! 🎉</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DAY 17 - DEPARTURE -->
-            <div class="day-card">
-                <div class="day-header">
-                    <div>
-                        <span class="day-number">Day 17 • Thu 19 Feb</span>
-                        <span class="day-location">Departure Day ✈️</span>
-                    </div>
-                    <span class="day-drive">🚗 Depends on return location</span>
-                </div>
-                <div class="day-body">
-                    <div class="day-section">
-                        <h4>🎯 Options for Return</h4>
-                        <ul>
-                            <li><strong>If returning to Christchurch:</strong> 4.5hr drive (330km) via Kaikōura coast - stunning!</li>
-                            <li><strong>If flying from Blenheim:</strong> Small airport, some flights available</li>
-                            <li><strong>If taking ferry:</strong> Picton is 25min drive - InterIslander or Bluebridge to Wellington</li>
-                            <li>Return campervan at agreed location</li>
-                        </ul>
-                    </div>
-                    <div class="day-section">
-                        <h4>🦭 Bonus: Kaikōura Stop (if driving to Chch)</h4>
-                        <ul>
-                            <li><a href="https://www.kaikoura.co.nz/tours/whale-watch/" target="_blank" class="link-btn orange">🐋 Whale Watching</a> - see sperm whales!</li>
-                            <li>Seal colony at Kaikōura Peninsula - FREE!</li>
-                            <li>Fresh crayfish from roadside stalls</li>
                         </ul>
                     </div>
                 </div>
@@ -892,196 +776,31 @@
                 <div class="day-header">
                     <div>
                         <span class="day-number">Day 17 • Thu 19 Feb</span>
-                        <span class="day-location">Christchurch → ✈️ Departure</span>
+                        <span class="day-location">Marlborough → Christchurch ✈️</span>
                     </div>
-                    <span class="day-drive">✈️ Fly home</span>
+                    <span class="day-drive">🚗 4.5hr drive • 330km via Kaikōura</span>
                 </div>
                 <div class="day-body">
                     <div class="day-section">
-                        <h4>🎯 Departure Day</h4>
+                        <h4>🎯 Scenic Return to Christchurch</h4>
+                        <ul>
+                            <li>Drive the stunning coastal route via <span class="highlight">Kaikōura</span></li>
+                            <li>Stop at Kaikōura Peninsula - seal colony (FREE!)</li>
+                            <li>Fresh crayfish from roadside stalls</li>
+                            <li>Optional: <a href="https://www.kaikoura.co.nz/tours/whale-watch/" target="_blank" class="link-btn orange">🐋 Whale Watching</a> - see sperm whales!</li>
+                            <li>Continue to Christchurch via coastal road</li>
+                        </ul>
+                    </div>
+                    <div class="day-section">
+                        <h4>✈️ Departure</h4>
                         <ul>
                             <li>Return vehicle to Elite RV</li>
-                            <li>✈️ Fly home with amazing memories!</li>
+                            <li>✈️ Fly home from Christchurch with amazing memories!</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-        </div>
-
-        <!-- CAMPSITES SECTION -->
-        <div id="campsites" class="section">
-            <h2 style="color: #00d9ff; margin-bottom: 20px;">🏕️ Complete Campsite Guide</h2>
-            
-            <div class="info-box">
-                <h3>✅ Your Self-Contained Advantage</h3>
-                <ul>
-                    <li>Your Elite RV Vellfire is <strong>self-contained certified</strong></li>
-                    <li>You can stay at ALL "Self-Contained Only" freedom camping spots</li>
-                    <li><a href="https://campermate.com/en/category/nz/free-campsites" target="_blank" class="link-btn">Browse All Free NZ Campsites on CamperMate</a></li>
-                </ul>
-            </div>
-
-            <h3 style="color: #00ff88; margin: 20px 0;">🆓 FREE Self-Contained Campsites</h3>
-            
-            <div class="campsite-grid">
-                <div class="campsite-card free">
-                    <div class="card-header">
-                        <h3>Lake Pukaki Reserve - The Pines</h3>
-                        <div class="location">📍 Mackenzie (near Mt Cook)</div>
-                    </div>
-                    <div class="card-body">
-                        <span class="price-tag free">FREE</span>
-                        <div class="amenities">
-                            <span class="amenity">🚐 Self-Contained</span>
-                            <span class="amenity">🏔️ Mt Cook Views</span>
-                            <span class="amenity">🔥 Most Popular!</span>
-                        </div>
-                        <a href="https://campermate.com/en/location/new-zealand/can/mackenzie/free-campsites/lake-pukaki-reserve---the-pines/c55217ad-9865-44c7-8509-81cc6357af16" target="_blank" class="card-link">View on CamperMate →</a>
-                    </div>
-                </div>
-
-                <div class="campsite-card free">
-                    <div class="card-header">
-                        <h3>Wanaka Recreation Centre</h3>
-                        <div class="location">📍 Wanaka</div>
-                    </div>
-                    <div class="card-body">
-                        <span class="price-tag free">FREE</span>
-                        <div class="amenities">
-                            <span class="amenity">🚐 Self-Contained</span>
-                            <span class="amenity">🏪 Near Town</span>
-                        </div>
-                        <a href="https://campermate.com/en/location/new-zealand/ota/wanaka/free-campsites/wanaka-recreation-centre/df447ece-cbfc-11f0-90bd-0a6a2c6a25fb" target="_blank" class="card-link">View on CamperMate →</a>
-                    </div>
-                </div>
-
-                <div class="campsite-card free">
-                    <div class="card-header">
-                        <h3>Beacon Point Road</h3>
-                        <div class="location">📍 Wanaka</div>
-                    </div>
-                    <div class="card-body">
-                        <span class="price-tag free">FREE</span>
-                        <div class="amenities">
-                            <span class="amenity">🚐 Self-Contained</span>
-                            <span class="amenity">🌅 Lake Views</span>
-                        </div>
-                        <a href="https://campermate.com/en/location/new-zealand/ota/wanaka/free-campsites/beacon-point-road,-wanaka/d68fa4ca-cbe9-11f0-90bd-0a6a2c6a25fb" target="_blank" class="card-link">View on CamperMate →</a>
-                    </div>
-                </div>
-
-                <div class="campsite-card free">
-                    <div class="card-header">
-                        <h3>Lakeview Carpark</h3>
-                        <div class="location">📍 Queenstown</div>
-                    </div>
-                    <div class="card-body">
-                        <span class="price-tag free">FREE</span>
-                        <div class="amenities">
-                            <span class="amenity">🚐 Self-Contained</span>
-                            <span class="amenity">📍 Central!</span>
-                        </div>
-                        <a href="https://campermate.com/en/location/new-zealand/ota/queenstown/free-campsites/lakeview-carpark,-queenstown/b9f60609-cbfa-11f0-90bd-0a6a2c6a25fb" target="_blank" class="card-link">View on CamperMate →</a>
-                    </div>
-                </div>
-
-                <div class="campsite-card free">
-                    <div class="card-header">
-                        <h3>Kawarau Bridge Historic Reserve</h3>
-                        <div class="location">📍 Queenstown</div>
-                    </div>
-                    <div class="card-body">
-                        <span class="price-tag free">FREE</span>
-                        <div class="amenities">
-                            <span class="amenity">🚐 Self-Contained</span>
-                            <span class="amenity">🌉 Bungy Views</span>
-                        </div>
-                        <a href="https://campermate.com/en/location/new-zealand/ota/queenstown/free-campsites/kawarau-bridge-historic-reserve/4370af32-9829-4a92-a4a8-0a6ffc8facff" target="_blank" class="card-link">View on CamperMate →</a>
-                    </div>
-                </div>
-
-                <div class="campsite-card free">
-                    <div class="card-header">
-                        <h3>Brighton Domain</h3>
-                        <div class="location">📍 Dunedin</div>
-                    </div>
-                    <div class="card-body">
-                        <span class="price-tag free">FREE</span>
-                        <div class="amenities">
-                            <span class="amenity">🚐 Self-Contained</span>
-                            <span class="amenity">🏖️ Beach</span>
-                        </div>
-                        <a href="https://campermate.com/en/location/new-zealand/ota/dunedin/free-campsites/brighton-domain-campground/bcb885e1-7139-4ec2-99f9-cc498e387d1b" target="_blank" class="card-link">View on CamperMate →</a>
-                    </div>
-                </div>
-            </div>
-
-            <h3 style="color: #ff9500; margin: 20px 0;">💰 Budget DOC Campsites ($8-18/person)</h3>
-            
-            <div class="campsite-grid">
-                <div class="campsite-card paid">
-                    <div class="card-header">
-                        <h3>White Horse Hill</h3>
-                        <div class="location">📍 Mt Cook</div>
-                    </div>
-                    <div class="card-body">
-                        <span class="price-tag paid">$15/person</span>
-                        <div class="amenities">
-                            <span class="amenity">🚽 Toilets</span>
-                            <span class="amenity">💧 Water</span>
-                            <span class="amenity">🏔️ Best Location!</span>
-                        </div>
-                        <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/campsites/white-horse-hill-campsite/" target="_blank" class="card-link">View on DOC →</a>
-                    </div>
-                </div>
-
-                <div class="campsite-card paid">
-                    <div class="card-header">
-                        <h3>12 Mile Delta</h3>
-                        <div class="location">📍 Queenstown</div>
-                    </div>
-                    <div class="card-body">
-                        <span class="price-tag paid">$15/person</span>
-                        <div class="amenities">
-                            <span class="amenity">🚽 Toilets</span>
-                            <span class="amenity">🌊 Lakefront</span>
-                        </div>
-                        <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/queenstown-area/things-to-do/campsites/twelve-mile-delta-campsite/" target="_blank" class="card-link">View on DOC →</a>
-                    </div>
-                </div>
-
-                <div class="campsite-card paid">
-                    <div class="card-header">
-                        <h3>Moke Lake</h3>
-                        <div class="location">📍 Queenstown</div>
-                    </div>
-                    <div class="card-body">
-                        <span class="price-tag paid">$18/person</span>
-                        <div class="amenities">
-                            <span class="amenity">🚽 Toilets</span>
-                            <span class="amenity">🏊 Swimming</span>
-                            <span class="amenity">⭐ Hidden Gem</span>
-                        </div>
-                        <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/queenstown-area/things-to-do/campsites/moke-lake-campsite/" target="_blank" class="card-link">View on DOC →</a>
-                    </div>
-                </div>
-
-                <div class="campsite-card paid">
-                    <div class="card-header">
-                        <h3>Papatowai</h3>
-                        <div class="location">📍 The Catlins</div>
-                    </div>
-                    <div class="card-body">
-                        <span class="price-tag paid">$8/person</span>
-                        <div class="amenities">
-                            <span class="amenity">🚽 Toilets</span>
-                            <span class="amenity">🌲 Bush Setting</span>
-                        </div>
-                        <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/southland/places/catlins-coastal-area/things-to-do/campsites/papatowai-campsite/" target="_blank" class="card-link">View on DOC →</a>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- HIKES SECTION -->
@@ -1096,184 +815,434 @@
                 </p>
             </div>
 
-            <h3 style="color: #00ff88; margin: 20px 0;">Lake Tekapo Area</h3>
-            
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/te-manahuna-aoraki-mackenzie-area/things-to-do/tracks/mt-john-summit-circuit-track/" target="_blank">Mt John Summit Circuit</a></h4>
-                <div class="stats">⏱️ 1hr return • 📏 3km • 📈 Easy-Moderate</div>
-                <div class="desc">360° panoramic views of the Mackenzie Basin, Lake Tekapo, and Southern Alps. Astro Café at the top!</div>
+            <div class="location-section">
+                <h3>📍 Lake Tekapo Area</h3>
+                
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/te-manahuna-aoraki-mackenzie-area/things-to-do/tracks/mt-john-summit-circuit-track/" target="_blank">Mt John Summit Circuit</a></h4>
+                    <div class="stats">⏱️ 1hr return • 📏 3km • 📈 Easy-Moderate</div>
+                    <div class="desc">360° panoramic views of the Mackenzie Basin, Lake Tekapo, and Southern Alps. Astro Café at the top!</div>
+                </div>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/te-manahuna-aoraki-mackenzie-area/things-to-do/tracks/cowans-hill-track/" target="_blank">Cowans Hill Track</a></h4>
+                    <div class="stats">⏱️ 1hr return • 📏 2km • 📈 Easy</div>
+                    <div class="desc">Great lake views without the climb of Mt John. Good sunset spot.</div>
+                </div>
             </div>
 
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/te-manahuna-aoraki-mackenzie-area/things-to-do/tracks/cowans-hill-track/" target="_blank">Cowans Hill Track</a></h4>
-                <div class="stats">⏱️ 1hr return • 📏 2km • 📈 Easy</div>
-                <div class="desc">Great lake views without the climb of Mt John. Good sunset spot.</div>
+            <div class="location-section">
+                <h3>📍 Mt Cook / Aoraki</h3>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/hooker-valley-track/" target="_blank">Hooker Valley Track ⭐ MUST DO</a></h4>
+                    <div class="stats">⏱️ 3hr return • 📏 10km • 📈 Easy</div>
+                    <div class="desc">NZ's most popular day walk! Three swing bridges, glacier-fed lake, views of Aoraki/Mt Cook. Flat and easy.</div>
+                </div>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/kea-point-track/" target="_blank">Kea Point Track</a></h4>
+                    <div class="stats">⏱️ 2hr return • 📏 2km • 📈 Easy</div>
+                    <div class="desc">Views of Mueller Glacier and Mt Sefton. Great if Hooker Valley is busy.</div>
+                </div>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/tasman-glacier-walks/" target="_blank">Tasman Glacier Viewpoint</a></h4>
+                    <div class="stats">⏱️ 40min return • 📏 Easy stairs</div>
+                    <div class="desc">View NZ's longest glacier and Tasman Lake with icebergs.</div>
+                </div>
+
+                <div class="hike-card hard">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/huts/mueller-hut/" target="_blank">Mueller Hut Route</a></h4>
+                    <div class="stats">⏱️ 8hr return or overnight • 📏 10km • 📈 Advanced/Alpine</div>
+                    <div class="desc">Challenging climb to an iconic alpine hut. Stunning views but demanding. Book hut in advance!</div>
+                </div>
             </div>
 
-            <h3 style="color: #00ff88; margin: 20px 0;">Mt Cook / Aoraki</h3>
+            <div class="location-section">
+                <h3>📍 Wanaka Area</h3>
 
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/hooker-valley-track/" target="_blank">Hooker Valley Track ⭐ MUST DO</a></h4>
-                <div class="stats">⏱️ 3hr return • 📏 10km • 📈 Easy</div>
-                <div class="desc">NZ's most popular day walk! Three swing bridges, glacier-fed lake, views of Aoraki/Mt Cook. Flat and easy.</div>
+                <div class="hike-card hard">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/wanaka-area/things-to-do/roys-peak-track/" target="_blank">Roys Peak ⭐</a></h4>
+                    <div class="stats">⏱️ 5-6hr return • 📏 16km • 📈 Challenging (1,300m elevation)</div>
+                    <div class="desc">THAT Instagram viewpoint. Steep but well-formed track. Start early to beat crowds and heat!</div>
+                </div>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/wanaka-area/things-to-do/mount-iron-track/" target="_blank">Mt Iron Track</a></h4>
+                    <div class="stats">⏱️ 1.5hr return • 📏 4.5km • 📈 Easy-Moderate</div>
+                    <div class="desc">360° views for minimal effort. Great sunrise/sunset option.</div>
+                </div>
+
+                <div class="hike-card moderate">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/mount-aspiring-national-park/things-to-do/tracks/rob-roy-track/" target="_blank">Rob Roy Glacier Track ⭐</a></h4>
+                    <div class="stats">⏱️ 3-4hr return • 📏 10km • 📈 Moderate</div>
+                    <div class="desc">Stunning alpine valley with glacier views, waterfalls, and native forest. 1hr drive from Wanaka.</div>
+                </div>
+
+                <div class="hike-card hard">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/matatiaho-conservation-area/things-to-do/isthmus-peak-track/" target="_blank">Isthmus Peak</a></h4>
+                    <div class="stats">⏱️ 5-6hr return • 📏 16km • 📈 Challenging</div>
+                    <div class="desc">Less crowded alternative to Roys Peak with views of both Lake Wanaka and Hawea.</div>
+                </div>
             </div>
 
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/kea-point-track/" target="_blank">Kea Point Track</a></h4>
-                <div class="stats">⏱️ 2hr return • 📏 2km • 📈 Easy</div>
-                <div class="desc">Views of Mueller Glacier and Mt Sefton. Great if Hooker Valley is busy.</div>
+            <div class="location-section">
+                <h3>📍 Queenstown & Glenorchy</h3>
+
+                <div class="hike-card moderate">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/queenstown-area/things-to-do/tracks/ben-lomond-track/" target="_blank">Ben Lomond Track</a></h4>
+                    <div class="stats">⏱️ 6-8hr return • 📏 11km • 📈 Challenging</div>
+                    <div class="desc">Iconic Queenstown summit hike. Can take gondola to skip first section.</div>
+                </div>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/queenstown-area/things-to-do/tracks/queenstown-hill-walkway/" target="_blank">Queenstown Hill / Te Tapu-nui</a></h4>
+                    <div class="stats">⏱️ 2-3hr return • 📏 5km • 📈 Moderate</div>
+                    <div class="desc">Great views over Queenstown and The Remarkables. "Time Walk" basket at summit.</div>
+                </div>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/glenorchy-area/things-to-do/glenorchy-walkway/" target="_blank">Glenorchy Walkway</a></h4>
+                    <div class="stats">⏱️ 1hr • 📏 3km loop • 📈 Easy</div>
+                    <div class="desc">Beautiful boardwalk through wetlands with mountain views. LOTR filming area.</div>
+                </div>
             </div>
 
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/tasman-glacier-walks/" target="_blank">Tasman Glacier Viewpoint</a></h4>
-                <div class="stats">⏱️ 40min return • 📏 Easy stairs</div>
-                <div class="desc">View NZ's longest glacier and Tasman Lake with icebergs.</div>
+            <div class="location-section">
+                <h3>📍 Milford Road & Fiordland</h3>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/mirror-lakes-walk/" target="_blank">Mirror Lakes Walk</a></h4>
+                    <div class="stats">⏱️ 10min • 📏 500m • 📈 Easy (wheelchair accessible)</div>
+                    <div class="desc">Perfect mountain reflections in still lakes. Great photo stop on Milford road.</div>
+                </div>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/the-chasm-walk/" target="_blank">The Chasm Walk</a></h4>
+                    <div class="stats">⏱️ 20min return • 📏 800m • 📈 Easy</div>
+                    <div class="desc">Powerful waterfall through carved rock formations. Short walk near Homer Tunnel.</div>
+                </div>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/key-summit-track/" target="_blank">Key Summit Track</a></h4>
+                    <div class="stats">⏱️ 3hr return • 📏 6.6km • 📈 Moderate</div>
+                    <div class="desc">Panoramic views of three major valleys. Start of Routeburn Track.</div>
+                </div>
             </div>
 
-            <div class="hike-card hard">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/huts/mueller-hut/" target="_blank">Mueller Hut Route</a></h4>
-                <div class="stats">⏱️ 8hr return or overnight • 📏 10km • 📈 Advanced/Alpine</div>
-                <div class="desc">Challenging climb to an iconic alpine hut. Stunning views but demanding. Book hut in advance!</div>
+            <div class="location-section">
+                <h3>📍 West Coast</h3>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/west-coast/places/haast-highway-area/things-to-do/tracks/blue-pools-walk/" target="_blank">Blue Pools Walk</a></h4>
+                    <div class="stats">⏱️ 30min return • 📏 1.5km • 📈 Easy</div>
+                    <div class="desc">Crystal clear blue-green pools surrounded by native bush. Swing bridge crossing.</div>
+                </div>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.franzjosefglacier.com/glacier-valley-walk/" target="_blank">Franz Josef Glacier Valley Walk</a></h4>
+                    <div class="stats">⏱️ 1.5hr return • 📏 5.4km • 📈 Easy</div>
+                    <div class="desc">Walk to the glacier terminus viewpoint. FREE!</div>
+                </div>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/west-coast/places/paparoa-national-park/things-to-do/tracks/pancake-rocks-and-blowholes-walk/" target="_blank">Pancake Rocks & Blowholes</a></h4>
+                    <div class="stats">⏱️ 20min loop • 📏 1km • 📈 Easy</div>
+                    <div class="desc">Iconic layered limestone formations with blowholes active at high tide!</div>
+                </div>
+
+                <div class="hike-card">
+                    <h4><a href="https://www.hokitikagorge.co.nz" target="_blank">Hokitika Gorge Walk</a></h4>
+                    <div class="stats">⏱️ 30min return • 📏 1km • 📈 Easy</div>
+                    <div class="desc">Stunning turquoise water in a gorge setting. Swing bridge included!</div>
+                </div>
             </div>
 
-            <h3 style="color: #00ff88; margin: 20px 0;">Wanaka Area</h3>
+            <div class="location-section">
+                <h3>📍 Abel Tasman & Nelson</h3>
 
-            <div class="hike-card hard">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/wanaka-area/things-to-do/roys-peak-track/" target="_blank">Roys Peak ⭐</a></h4>
-                <div class="stats">⏱️ 5-6hr return • 📏 16km • 📈 Challenging (1,300m elevation)</div>
-                <div class="desc">THAT Instagram viewpoint. Steep but well-formed track. Start early to beat crowds and heat!</div>
-            </div>
-
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/wanaka-area/things-to-do/mount-iron-track/" target="_blank">Mt Iron Track</a></h4>
-                <div class="stats">⏱️ 1.5hr return • 📏 4.5km • 📈 Easy-Moderate</div>
-                <div class="desc">360° views for minimal effort. Great sunrise/sunset option.</div>
-            </div>
-
-            <div class="hike-card moderate">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/mount-aspiring-national-park/things-to-do/tracks/rob-roy-track/" target="_blank">Rob Roy Glacier Track</a></h4>
-                <div class="stats">⏱️ 3-4hr return • 📏 10km • 📈 Moderate</div>
-                <div class="desc">Stunning alpine valley with glacier views, waterfalls, and native forest. 1hr drive from Wanaka.</div>
-            </div>
-
-            <div class="hike-card hard">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/matatiaho-conservation-area/things-to-do/isthmus-peak-track/" target="_blank">Isthmus Peak</a></h4>
-                <div class="stats">⏱️ 5-6hr return • 📏 16km • 📈 Challenging</div>
-                <div class="desc">Less crowded alternative to Roys Peak with views of both Lake Wanaka and Hawea.</div>
-            </div>
-
-            <h3 style="color: #00ff88; margin: 20px 0;">Queenstown Area</h3>
-
-            <div class="hike-card moderate">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/queenstown-area/things-to-do/tracks/ben-lomond-track/" target="_blank">Ben Lomond Track</a></h4>
-                <div class="stats">⏱️ 6-8hr return • 📏 11km • 📈 Challenging</div>
-                <div class="desc">Iconic Queenstown summit hike. Can take gondola to skip first section.</div>
-            </div>
-
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/queenstown-area/things-to-do/tracks/queenstown-hill-walkway/" target="_blank">Queenstown Hill / Te Tapu-nui</a></h4>
-                <div class="stats">⏱️ 2-3hr return • 📏 5km • 📈 Moderate</div>
-                <div class="desc">Great views over Queenstown and The Remarkables. "Time Walk" basket at summit.</div>
-            </div>
-
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/glenorchy-area/things-to-do/glenorchy-walkway/" target="_blank">Glenorchy Walkway</a></h4>
-                <div class="stats">⏱️ 1hr • 📏 3km loop • 📈 Easy</div>
-                <div class="desc">Beautiful boardwalk through wetlands with mountain views. LOTR filming area.</div>
-            </div>
-
-            <h3 style="color: #00ff88; margin: 20px 0;">Milford Road & Fiordland</h3>
-
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/mirror-lakes-walk/" target="_blank">Mirror Lakes Walk</a></h4>
-                <div class="stats">⏱️ 10min • 📏 500m • 📈 Easy (wheelchair accessible)</div>
-                <div class="desc">Perfect mountain reflections in still lakes. Great photo stop on Milford road.</div>
-            </div>
-
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/the-chasm-walk/" target="_blank">The Chasm Walk</a></h4>
-                <div class="stats">⏱️ 20min return • 📏 800m • 📈 Easy</div>
-                <div class="desc">Powerful waterfall through carved rock formations. Short walk near Homer Tunnel.</div>
-            </div>
-
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/fiordland/places/fiordland-national-park/things-to-do/tracks/key-summit-track/" target="_blank">Key Summit Track</a></h4>
-                <div class="stats">⏱️ 3hr return • 📏 6.6km • 📈 Moderate</div>
-                <div class="desc">Panoramic views of three major valleys. Start of Routeburn Track.</div>
-            </div>
-
-            <h3 style="color: #00ff88; margin: 20px 0;">The Catlins</h3>
-
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/southland/places/catlins-coastal-area/things-to-do/tracks/purakaunui-falls-walk/" target="_blank">Purakaunui Falls</a></h4>
-                <div class="stats">⏱️ 20min return • 📏 1km • 📈 Easy</div>
-                <div class="desc">NZ's most photographed waterfall! Three-tiered cascade in native bush.</div>
-            </div>
-
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/catlins-coastal-area/things-to-do/tracks/nugget-point-tokata-walks/" target="_blank">Nugget Point Lighthouse</a></h4>
-                <div class="stats">⏱️ 30min return • 📏 1km • 📈 Easy</div>
-                <div class="desc">Spectacular coastal views, lighthouse, sea lions and seals below.</div>
-            </div>
-
-            <div class="hike-card">
-                <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/southland/places/catlins-coastal-area/things-to-do/tracks/cathedral-caves/" target="_blank">Cathedral Caves</a></h4>
-                <div class="stats">⏱️ 1hr return • 📏 2km • 📈 Easy (tide dependent!)</div>
-                <div class="desc">Massive sea caves with 30m high ceilings. CHECK TIDE TIMES - only accessible at low tide!</div>
+                <div class="hike-card">
+                    <h4><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/nelson-tasman/places/abel-tasman-national-park/things-to-do/tracks/abel-tasman-coast-track/" target="_blank">Abel Tasman Coast Track (sections)</a></h4>
+                    <div class="stats">⏱️ Various • 📈 Easy</div>
+                    <div class="desc">NZ Great Walk - do day sections via water taxi. Golden beaches, turquoise water.</div>
+                </div>
             </div>
         </div>
 
-        <!-- HIGHLIGHTS SECTION -->
+        <!-- HIGHLIGHTS SECTION - BY LOCATION -->
         <div id="highlights" class="section">
-            <h2 style="color: #00d9ff; margin-bottom: 20px;">⭐ Must-Do Highlights</h2>
+            <h2 style="color: #00d9ff; margin-bottom: 20px;">⭐ Highlights by Location</h2>
+            
+            <div class="location-section">
+                <h3>📍 Lake Tekapo & Mackenzie</h3>
+                <ul style="line-height: 2; margin-left: 20px; color: #ccd6f6;">
+                    <li><a href="https://www.darkskyproject.co.nz" target="_blank"><strong>Dark Sky Project Stargazing</strong></a> - World-class dark sky reserve ⭐</li>
+                    <li><strong>Church of the Good Shepherd</strong> - Iconic lakeside chapel, sunrise/sunset photos</li>
+                    <li><a href="https://www.astrocafe.co.nz" target="_blank"><strong>Astro Café</strong></a> - Best coffee with a view (Mt John summit)</li>
+                    <li><a href="https://tekaposprings.co.nz" target="_blank"><strong>Tekapo Springs Hot Pools</strong></a> - Mountain views while you soak ($32)</li>
+                    <li><strong>Lake Pukaki</strong> - Most turquoise lake you'll ever see!</li>
+                </ul>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Mt Cook / Aoraki</h3>
+                <ul style="line-height: 2; margin-left: 20px; color: #ccd6f6;">
+                    <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/hooker-valley-track/" target="_blank"><strong>Hooker Valley Track</strong></a> - NZ's best day walk, 3 swing bridges ⭐</li>
+                    <li><a href="https://www.glacierexplorers.co.nz" target="_blank"><strong>Glacier Explorers Boat Tour</strong></a> - Touch icebergs! (~$185)</li>
+                    <li><a href="https://www.helicopter.co.nz/mt-cook" target="_blank"><strong>Scenic Helicopter Flight</strong></a> - Snow landing (~$350-500)</li>
+                    <li><a href="https://www.hermitage.co.nz/en/explore/sir-edmund-hillary-alpine-centre/" target="_blank"><strong>Sir Edmund Hillary Alpine Centre</strong></a></li>
+                </ul>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Queenstown</h3>
+                <ul style="line-height: 2; margin-left: 20px; color: #ccd6f6;">
+                    <li><a href="https://www.skyline.co.nz/en/queenstown/" target="_blank"><strong>Skyline Gondola & Luge</strong></a> - Views + dinner</li>
+                    <li><a href="https://www.bungy.co.nz/queenstown/kawarau-bungy-centre/" target="_blank"><strong>Kawarau Bridge Bungy</strong></a> - Original bungy! ($205)</li>
+                    <li><a href="https://www.shotoverjet.com" target="_blank"><strong>Shotover Jet</strong></a> - Canyon jet boat ($169)</li>
+                    <li><a href="https://www.onsen.co.nz" target="_blank"><strong>Onsen Hot Pools</strong></a> - Canyon views ($99+)</li>
+                    <li><strong>Glenorchy & Paradise</strong> - LOTR filming locations, stunning scenery</li>
+                    <li><a href="https://www.dartriver.co.nz" target="_blank"><strong>Dart River Jet Safari</strong></a> - Wilderness experience</li>
+                </ul>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Milford Sound</h3>
+                <ul style="line-height: 2; margin-left: 20px; color: #ccd6f6;">
+                    <li><a href="https://www.realjourneys.co.nz/en/experiences/cruises/milford-sound-nature-cruises/" target="_blank"><strong>Milford Sound Cruise</strong></a> - MUST DO! Fiordland's crown jewel ⭐</li>
+                    <li><strong>Mirror Lakes</strong> - Perfect reflections (10min stop)</li>
+                    <li><strong>The Chasm</strong> - Powerful waterfall (20min stop)</li>
+                    <li><strong>Homer Tunnel</strong> - Dramatic 1.2km mountain tunnel</li>
+                </ul>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Wanaka</h3>
+                <ul style="line-height: 2; margin-left: 20px; color: #ccd6f6;">
+                    <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/wanaka-area/things-to-do/roys-peak-track/" target="_blank"><strong>Roys Peak</strong></a> - THAT Instagram viewpoint! ⭐</li>
+                    <li><strong>#ThatWanakaTree</strong> - Iconic lakeside tree, best at sunrise/sunset</li>
+                    <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/mount-aspiring-national-park/things-to-do/tracks/rob-roy-track/" target="_blank"><strong>Rob Roy Glacier Track</strong></a> - Alpine valley with glacier views</li>
+                    <li><a href="https://www.puzzlingworld.co.nz" target="_blank"><strong>Puzzling World</strong></a> - Quirky illusion rooms & maze</li>
+                    <li><strong>Crown Range Road</strong> - NZ's highest sealed road</li>
+                </ul>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Franz Josef & West Coast</h3>
+                <ul style="line-height: 2; margin-left: 20px; color: #ccd6f6;">
+                    <li><a href="https://www.franzjosefglacier.com/heli-hike/" target="_blank"><strong>Glacier Heli-Hike</strong></a> - Walk ON the glacier! (~$499) ⭐</li>
+                    <li><a href="https://www.glacierhotpools.co.nz" target="_blank"><strong>Glacier Hot Pools</strong></a> - Rainforest hot pools ($32)</li>
+                    <li><strong>Blue Pools</strong> - Crystal clear swimming spot (Haast Pass)</li>
+                    <li><strong>Hokitika</strong> - Jade capital, browse pounamu galleries</li>
+                    <li><strong>Pancake Rocks</strong> - Iconic layered limestone at Punakaiki</li>
+                </ul>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Abel Tasman & Nelson</h3>
+                <ul style="line-height: 2; margin-left: 20px; color: #ccd6f6;">
+                    <li><a href="https://www.abeltasmanseakayaks.co.nz" target="_blank"><strong>Sea Kayaking</strong></a> - Paddle to golden beaches</li>
+                    <li><strong>Split Apple Rock</strong> - Iconic boulder beach</li>
+                    <li><strong>Abel Tasman Coast Track</strong> - Walk sections via water taxi</li>
+                    <li><strong>Cleopatra's Pool</strong> - Natural freshwater pool</li>
+                </ul>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Marlborough</h3>
+                <ul style="line-height: 2; margin-left: 20px; color: #ccd6f6;">
+                    <li><a href="https://www.cloudbay.co.nz" target="_blank"><strong>Cloudy Bay</strong></a> - World-famous Sauvignon Blanc!</li>
+                    <li><a href="https://www.brancottestate.com" target="_blank"><strong>Brancott Estate</strong></a> - First Marlborough winery</li>
+                    <li><strong>Wine Tours</strong> - Taste your way through the region</li>
+                </ul>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Kaikōura (Return Route)</h3>
+                <ul style="line-height: 2; margin-left: 20px; color: #ccd6f6;">
+                    <li><a href="https://www.kaikoura.co.nz/tours/whale-watch/" target="_blank"><strong>Whale Watching</strong></a> - See sperm whales!</li>
+                    <li><strong>Seal Colony</strong> - Kaikōura Peninsula (FREE!)</li>
+                    <li><strong>Fresh Crayfish</strong> - Roadside stalls, unmissable!</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FOOD & DRINK SECTION -->
+        <div id="food" class="section">
+            <h2 style="color: #00d9ff; margin-bottom: 20px;">🍽️ Food & Drink Guide</h2>
             
             <div class="info-box">
-                <h3>🏆 Top 10 Can't-Miss Experiences</h3>
-                <ol style="margin-left: 25px; line-height: 2.2;">
-                    <li><a href="https://www.realjourneys.co.nz/en/experiences/cruises/milford-sound-nature-cruises/" target="_blank"><strong>Milford Sound Cruise</strong></a> - Fiordland's crown jewel</li>
-                    <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/hooker-valley-track/" target="_blank"><strong>Hooker Valley Track</strong></a> - Swing bridges + glacier views</li>
-                    <li><a href="https://www.darkskyproject.co.nz" target="_blank"><strong>Lake Tekapo Stargazing</strong></a> - World-class dark sky reserve</li>
-                    <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/wanaka-area/things-to-do/roys-peak-track/" target="_blank"><strong>Roys Peak Hike</strong></a> - THAT Instagram viewpoint</li>
-                    <li><a href="https://www.dartriver.co.nz" target="_blank"><strong>Glenorchy/Paradise</strong></a> - LOTR filming locations</li>
-                    <li><a href="https://www.penguins.co.nz" target="_blank"><strong>Blue Penguin Colony</strong></a> - Oamaru penguin parade</li>
-                    <li><strong>Lake Pukaki</strong> - Most turquoise lake you'll ever see</li>
-                    <li><strong>Crown Range Road</strong> - NZ's highest sealed road</li>
-                    <li><a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/southland/places/curio-bay-tumu-toka/" target="_blank"><strong>Curio Bay</strong></a> - Yellow-eyed penguins at dusk (free!)</li>
-                    <li><a href="https://www.moerakiboulders.co.nz" target="_blank"><strong>Moeraki Boulders</strong></a> - Mysterious spherical rocks</li>
-                </ol>
-            </div>
-
-            <div class="info-box" style="border-color: #ff9500;">
-                <h3 style="color: #ff9500;">🎢 Adrenaline Activities</h3>
-                <ul style="line-height: 2;">
-                    <li><a href="https://www.bungy.co.nz/queenstown/kawarau-bungy-centre/" target="_blank"><strong>Kawarau Bridge Bungy</strong></a> - Original bungy! $205</li>
-                    <li><a href="https://www.bungy.co.nz/queenstown/nevis/nevis-bungy/" target="_blank"><strong>Nevis Bungy</strong></a> - 134m drop! $275</li>
-                    <li><a href="https://www.shotoverjet.com" target="_blank"><strong>Shotover Jet</strong></a> - Canyon jet boat $169</li>
-                    <li><a href="https://www.nzoneskydive.co.nz" target="_blank"><strong>Skydive Queenstown</strong></a> - ~$350-500</li>
-                    <li><a href="https://www.ziptrek.co.nz" target="_blank"><strong>Ziptrek Ecotours</strong></a> - Zipline through forest</li>
+                <h3>💡 Food Tips</h3>
+                <ul>
+                    <li><strong>Pak'nSave</strong> is the cheapest supermarket - stock up for cooking!</li>
+                    <li>Restaurants are expensive - $20-40+ per main</li>
+                    <li>Try local specialties: lamb, venison, green-lipped mussels, crayfish</li>
+                    <li>NZ Sauvignon Blanc & Pinot Noir are world-class</li>
                 </ul>
             </div>
 
-            <div class="info-box" style="border-color: #00ff88;">
-                <h3 style="color: #00ff88;">🧘 Relaxation Spots</h3>
-                <ul style="line-height: 2;">
-                    <li><a href="https://tekaposprings.co.nz" target="_blank"><strong>Tekapo Springs</strong></a> - Hot pools with mountain views $32</li>
-                    <li><a href="https://www.hottubsomarama.co.nz" target="_blank"><strong>Omarama Hot Tubs</strong></a> - Private outdoor tubs $55/hr</li>
-                    <li><a href="https://www.onsen.co.nz" target="_blank"><strong>Onsen Hot Pools</strong></a> - Queenstown canyon views $99+</li>
-                    <li><a href="https://www.rippon.co.nz" target="_blank"><strong>Rippon Vineyard</strong></a> - Wine + lake views, Wanaka</li>
-                    <li><a href="https://www.gibbstonvalley.com" target="_blank"><strong>Gibbston Valley</strong></a> - Wine region near Queenstown</li>
-                </ul>
+            <div class="location-section">
+                <h3>📍 On the Way - Fairlie</h3>
+                <div class="food-card">
+                    <h4><a href="https://maps.app.goo.gl/fairliebakehouse" target="_blank">Fairlie Bakehouse</a></h4>
+                    <div class="type">🥧 Bakery - Famous Pies!</div>
+                    <div class="desc">Iconic NZ pies - try the salmon, venison, or classic steak & cheese. Perfect road trip stop!</div>
+                </div>
             </div>
 
-            <div class="info-box">
-                <h3>🐧 Wildlife Highlights</h3>
-                <ul style="line-height: 2;">
-                    <li><strong>Yellow-eyed Penguins</strong> - <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/southland/places/curio-bay-tumu-toka/" target="_blank">Curio Bay</a> (free at dusk), Otago Peninsula</li>
-                    <li><strong>Blue Penguins</strong> - <a href="https://www.penguins.co.nz" target="_blank">Oamaru Colony</a> (~$40), Pilots Beach Dunedin</li>
-                    <li><strong>Royal Albatross</strong> - <a href="https://albatross.org.nz" target="_blank">Taiaroa Head</a>, only mainland colony ($60+)</li>
-                    <li><strong>Sea Lions</strong> - Otago Peninsula beaches, The Catlins</li>
-                    <li><strong>Seals</strong> - Milford Sound, <a href="https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/catlins-coastal-area/things-to-do/tracks/nugget-point-tokata-walks/" target="_blank">Nugget Point</a></li>
-                </ul>
+            <div class="location-section">
+                <h3>📍 Lake Tekapo</h3>
+                <div class="food-card">
+                    <h4><a href="https://www.astrocafe.co.nz" target="_blank">Astro Café</a></h4>
+                    <div class="type">☕ Café - Best Views!</div>
+                    <div class="desc">Coffee and food at Mt John summit with 360° views. Worth the drive up!</div>
+                </div>
+                <div class="food-card">
+                    <h4>Kohan Japanese Restaurant</h4>
+                    <div class="type">🍣 Japanese</div>
+                    <div class="desc">Surprisingly good sushi & salmon with lake views.</div>
+                </div>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Mt Cook</h3>
+                <div class="food-card">
+                    <h4><a href="https://www.hermitage.co.nz" target="_blank">The Hermitage Hotel</a></h4>
+                    <div class="type">🍽️ Fine Dining</div>
+                    <div class="desc">Panorama Restaurant for special occasion dining with glacier views. Also has casual café.</div>
+                </div>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Queenstown</h3>
+                <div class="food-card">
+                    <h4><a href="https://www.fergburger.com" target="_blank">Fergburger</a></h4>
+                    <div class="type">🍔 Burgers - ICONIC!</div>
+                    <div class="desc">World-famous burgers! Always a queue but worth it. Open late. Try the Big Al or Ferg Deluxe.</div>
+                </div>
+                <div class="food-card">
+                    <h4>Patagonia Chocolates</h4>
+                    <div class="type">🍫 Ice Cream & Chocolate</div>
+                    <div class="desc">Amazing gelato and hot chocolate by the lake.</div>
+                </div>
+                <div class="food-card">
+                    <h4>Vudu Café & Larder</h4>
+                    <div class="type">☕ Breakfast & Brunch</div>
+                    <div class="desc">Best brunch in town - arrive early!</div>
+                </div>
+                <div class="food-card">
+                    <h4><a href="https://www.skyline.co.nz/en/queenstown/stratosfare-restaurant-bar" target="_blank">Stratosfare Restaurant</a></h4>
+                    <div class="type">🍽️ Fine Dining with Views</div>
+                    <div class="desc">At Skyline Gondola - buffet with incredible lake & mountain views.</div>
+                </div>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Glenorchy</h3>
+                <div class="food-card">
+                    <h4>Mrs Woolly's General Store</h4>
+                    <div class="type">☕ Café</div>
+                    <div class="desc">Quirky character café, great coffee and food in a unique setting.</div>
+                </div>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Cardrona</h3>
+                <div class="food-card">
+                    <h4><a href="https://www.cardronahotel.co.nz" target="_blank">Cardrona Hotel</a></h4>
+                    <div class="type">🍺 Historic Pub</div>
+                    <div class="desc">NZ's most photographed pub (1863). Stop for a beer and photo with the famous bra fence!</div>
+                </div>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Wanaka</h3>
+                <div class="food-card">
+                    <h4><a href="https://www.federaldiner.co.nz" target="_blank">Federal Diner</a></h4>
+                    <div class="type">🍳 American Diner</div>
+                    <div class="desc">Great burgers, milkshakes, and all-day breakfast.</div>
+                </div>
+                <div class="food-card">
+                    <h4><a href="https://www.wanakabeerworks.co.nz" target="_blank">Wanaka Beerworks</a></h4>
+                    <div class="type">🍺 Craft Beer</div>
+                    <div class="desc">Local craft brewery with tasting paddles. Try their Brewski IPA!</div>
+                </div>
+                <div class="food-card">
+                    <h4>Big Fig</h4>
+                    <div class="type">🥗 Healthy & Fresh</div>
+                    <div class="desc">Great for post-hike healthy lunch - salads, bowls, smoothies.</div>
+                </div>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Franz Josef</h3>
+                <div class="food-card">
+                    <h4>Alice May</h4>
+                    <div class="type">🍽️ Kiwi Cuisine</div>
+                    <div class="desc">Best restaurant in town - wild venison, salmon, lamb. Book ahead!</div>
+                </div>
+                <div class="food-card">
+                    <h4>Full of Beans</h4>
+                    <div class="type">☕ Café</div>
+                    <div class="desc">Good coffee and breakfast to fuel up before glacier adventures.</div>
+                </div>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Hokitika</h3>
+                <div class="food-card">
+                    <h4>Fat Pipi Pizza</h4>
+                    <div class="type">🍕 Pizza</div>
+                    <div class="desc">Great wood-fired pizzas with local West Coast character.</div>
+                </div>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Abel Tasman / Motueka</h3>
+                <div class="food-card">
+                    <h4>Precinct 35</h4>
+                    <div class="type">☕ Café & Eatery</div>
+                    <div class="desc">Great coffee, brunch, and local produce in Motueka.</div>
+                </div>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Marlborough Wine Region</h3>
+                <div class="food-card">
+                    <h4><a href="https://www.cloudbay.co.nz" target="_blank">Cloudy Bay Cellar Door</a></h4>
+                    <div class="type">🍷 World-Famous Winery</div>
+                    <div class="desc">THE Sauvignon Blanc that put NZ wine on the map. Beautiful tasting room.</div>
+                </div>
+                <div class="food-card">
+                    <h4><a href="https://www.brancottestate.com" target="_blank">Brancott Estate</a></h4>
+                    <div class="type">🍷 Winery + Restaurant</div>
+                    <div class="desc">First Marlborough winery. Great restaurant with vineyard views.</div>
+                </div>
+                <div class="food-card">
+                    <h4><a href="https://www.allanscott.com" target="_blank">Allan Scott Family Winemakers</a></h4>
+                    <div class="type">🍷 Winery + Bistro</div>
+                    <div class="desc">Excellent tastings and one of the best winery restaurants.</div>
+                </div>
+                <div class="food-card">
+                    <h4><a href="https://www.wairauriverwines.com" target="_blank">Wairau River Wines</a></h4>
+                    <div class="type">🍷 Boutique Winery</div>
+                    <div class="desc">Family-run boutique winery with beautiful gardens.</div>
+                </div>
+            </div>
+
+            <div class="location-section">
+                <h3>📍 Kaikōura</h3>
+                <div class="food-card">
+                    <h4>Kaikōura Seafood BBQ (Nin's Bin)</h4>
+                    <div class="type">🦞 Crayfish - MUST TRY!</div>
+                    <div class="desc">Roadside caravan selling fresh crayfish. Unmissable experience! Cash only.</div>
+                </div>
+                <div class="food-card">
+                    <h4>The Pier Hotel</h4>
+                    <div class="type">🍽️ Pub Food + Seafood</div>
+                    <div class="desc">Great fish & chips and seafood with harbour views.</div>
+                </div>
             </div>
         </div>
 
@@ -1296,28 +1265,22 @@
             
             <div class="app-grid">
                 <div class="app-card">
+                    <h4>MetService ⭐</h4>
+                    <p>Best NZ weather app - check EVERY morning before hiking!</p>
+                    <a href="https://apps.apple.com/nz/app/metservice/id369425912" target="_blank" class="link-btn">iOS</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.metservice.nz" target="_blank" class="link-btn">Android</a>
+                </div>
+                <div class="app-card">
                     <h4>CamperMate</h4>
                     <p>Best app for campsites, dump stations, amenities. Works offline!</p>
                     <a href="https://apps.apple.com/app/campermate/id465040067" target="_blank" class="link-btn">iOS</a>
                     <a href="https://play.google.com/store/apps/details?id=nz.co.campermate" target="_blank" class="link-btn">Android</a>
                 </div>
                 <div class="app-card">
-                    <h4>WikiCamps NZ</h4>
-                    <p>Community-reviewed camping spots with offline maps.</p>
-                    <a href="https://apps.apple.com/app/wikicamps-new-zealand/id673273778" target="_blank" class="link-btn">iOS</a>
-                    <a href="https://play.google.com/store/apps/details?id=au.com.wikicamps.newzealand" target="_blank" class="link-btn">Android</a>
-                </div>
-                <div class="app-card">
                     <h4>Gaspy</h4>
                     <p>Find cheapest fuel prices - petrol is expensive!</p>
                     <a href="https://apps.apple.com/nz/app/gaspy/id969498498" target="_blank" class="link-btn">iOS</a>
                     <a href="https://play.google.com/store/apps/details?id=nz.co.hwem.gaspy" target="_blank" class="link-btn">Android</a>
-                </div>
-                <div class="app-card">
-                    <h4>MetService</h4>
-                    <p>Best NZ weather app - mountain weather changes fast!</p>
-                    <a href="https://apps.apple.com/nz/app/metservice/id369425912" target="_blank" class="link-btn">iOS</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.metservice.nz" target="_blank" class="link-btn">Android</a>
                 </div>
                 <div class="app-card">
                     <h4>Google Maps Offline</h4>
@@ -1328,6 +1291,12 @@
                     <p>Hiking trails with offline maps and reviews.</p>
                     <a href="https://apps.apple.com/app/alltrails-hike-bike-run/id405075943" target="_blank" class="link-btn">iOS</a>
                     <a href="https://play.google.com/store/apps/details?id=com.alltrails.alltrails" target="_blank" class="link-btn">Android</a>
+                </div>
+                <div class="app-card">
+                    <h4>WikiCamps NZ</h4>
+                    <p>Community-reviewed camping spots with offline maps.</p>
+                    <a href="https://apps.apple.com/app/wikicamps-new-zealand/id673273778" target="_blank" class="link-btn">iOS</a>
+                    <a href="https://play.google.com/store/apps/details?id=au.com.wikicamps.newzealand" target="_blank" class="link-btn">Android</a>
                 </div>
             </div>
 
@@ -1350,7 +1319,6 @@
                     <li><strong>Pak'nSave</strong> is the cheapest supermarket</li>
                     <li><strong>Cook your own meals</strong> - restaurants are expensive</li>
                     <li><strong>Book activities</strong> in advance for better prices</li>
-                    <li><strong>DOC campsites</strong> - $8-18pp vs $50-70 at holiday parks</li>
                     <li><strong>Free activities</strong> - hiking, beaches, scenic drives are FREE!</li>
                 </ul>
             </div>
@@ -1360,7 +1328,7 @@
                 <ul>
                     <li><strong>Layers!</strong> - 4 seasons in 1 day is real here</li>
                     <li><strong>Rain jacket</strong> - Especially for West Coast & Milford</li>
-                    <li><strong>Sandfly repellent</strong> - Essential for Milford, Catlins!</li>
+                    <li><strong>Sandfly repellent</strong> - Essential for Milford, West Coast!</li>
                     <li><strong>Sunscreen</strong> - UV is intense in NZ</li>
                     <li><strong>Good hiking shoes</strong> - for all those walks</li>
                     <li><strong>Headlamp</strong> - for stargazing + campsite nights</li>
@@ -1370,9 +1338,9 @@
         </div>
 
         <footer>
-            <p>Dashboard compiled by Jamal 🧠 | Last updated: Feb 2026</p>
-            <p style="margin-top: 10px;">Data from CamperMate, DOC, myqueenstowndiary.com, lauratheexplorer.co.nz</p>
-            <p style="margin-top: 15px; font-size: 1.1em;">Have an amazing trip, Ben! 🚐✨🏔️</p>
+            <p>Dashboard compiled by Jamal 🧠 | Last updated: 2 Feb 2026</p>
+            <p style="margin-top: 10px;">Data from DOC, Lonely Planet, local recommendations</p>
+            <p style="margin-top: 15px; font-size: 1.1em;">Have an amazing trip! 🚐✨🏔️</p>
         </footer>
     </div>
 
